@@ -41,7 +41,7 @@ function setup() {
 	treeObj=new tree(1050,580);
 	groundObject=new ground(width/2,600,width,20);
   //create launcherObject here
-launcherObject= new Launcher(stoneObj.body,{x:235,y:420});
+launcherObject= new launcher(stoneObj.body,{x:235,y:420});
 
 
 	Engine.run(engine);
@@ -107,6 +107,7 @@ Matter.Body.setPosition(stoneObj.body,{
 x:235,y:420  
 })
 launcherObject.attach(stoneObj.body);   
+}
 }  
 
 
@@ -120,3 +121,4 @@ launcherObject.attach(stoneObj.body);
     {
   	  Matter.Body.setStatic(lmango.body,false);
     }
+  }

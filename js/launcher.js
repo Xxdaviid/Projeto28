@@ -1,29 +1,38 @@
-class Launcher{
-    constructor(body,ancora){
-    var options={
-    
-    pointB:ancora,
-    stiffness:0.004,
-    length:1    
-    }
-this.bodyA=body
-    this.pointB=ancora
-    this.launcher= Constraint.create(options);
-    World.add(world,this.launcher);
-    }
-    fly(){
-    this.launcher.bodyA=null;    
-    }
-attach(body){
-this.launcher.bodyA=body;
+class launcher{
+	constructor(body,anchor)
+	{
+		
+		var options={ bodyA:body,			 
+			pointB:anchor, 
+			stiffness:0.004, 
+			length:1
+			
+		}
+		
+		this.bodyA=body
+		this.pointB=anchor
+		this.launcher=Constraint.create(options)
+		World.add(world,this.launcher)
+	}
+
+	attach(body){
+		this.launcher.bodyA=body;
+	}
+
+	fly()
+	{
+		this.launcher.bodyA=null;
+	}
+
+	display()
+	{
+		if(this.launcher.bodyA)
+		{
+			var pointA=this.bodyA.position;
+			var pointB=this.pointB
+
+			strokeWeight(2);		
+			line(pointA.x,pointA.y,pointB.x,pointB.y);
+		}
+	}
 }
-    display(){
-    if(this.launcher.bodyA){
-    var pontoA=this.bodyA.position;
-    var pontoB=this.pointB;
-    strokeWeight(4);
-    line(pontoA.x,pontoA.y,pontoB.x,pontoB.y);
-    }
-    
-    }
-    }
